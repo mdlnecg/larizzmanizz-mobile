@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-    final String npm = '2306207846';
-    final String name = 'Madeline Clairine Gultom';
-    final String className = 'PBP D';
-    MyHomePage({super.key});
+  final String npm = '2306207846';
+  final String name = 'Madeline Clairine Gultom';
+  final String className = 'PBP D';
+  MyHomePage({super.key});
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -71,11 +71,11 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-    final List<ItemHomepage> items = [
-        ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart, const Color(0xFFFADFA1)),
-        ItemHomepage("Tambah Produk", Icons.add, const Color(0xFF7EACB5)),
-        ItemHomepage("Logout", Icons.logout, const Color(0xFFC96868)),
-    ];
+  final List<ItemHomepage> items = [
+      ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart, const Color(0xFFFADFA1)),
+      ItemHomepage("Tambah Produk", Icons.add, const Color(0xFF7EACB5)),
+      ItemHomepage("Logout", Icons.logout, const Color(0xFFC96868)),
+  ];
 }
 
 
@@ -109,14 +109,14 @@ class InfoCard extends StatelessWidget {
 }
 
 class ItemHomepage {
-     final String name;
-     final IconData icon;
-     final Color color;
+  final String name;
+  final IconData icon;
+  final Color color;
 
-     ItemHomepage(this.name, this.icon, this.color);
- }
+  ItemHomepage(this.name, this.icon, this.color);
+}
 
- class ItemCard extends StatelessWidget {
+class ItemCard extends StatelessWidget {
 
   final ItemHomepage item; 
   
