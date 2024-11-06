@@ -3,8 +3,9 @@ Nama: Madeline Clairine Gultom\
 NPM: 2306207846\
 PBP D
 
-<!-- <details><summary>TUGAS 7: Elemen Dasar Flutter</summary> -->
-TUGAS 7 PBP 2024/2025
+<details><summary>TUGAS 7: Elemen Dasar Flutter</summary>
+
+## TUGAS 7 PBP 2024/2025
 
 ### 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
 Flutter memiliki dua jenis widget utama, yaitu stateless dan stateful widget. Perbedaan dari kedua widget tersebut adalah sebagai berikut.
