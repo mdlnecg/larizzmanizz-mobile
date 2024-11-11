@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:larizzmanizz/menu.dart';
+import 'package:larizzmanizz/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'larizzmanizz',
       theme: ThemeData(
-         colorScheme: ColorScheme.fromSwatch(
-                primarySwatch: Colors.brown,
-          ).copyWith(secondary: Colors.brown[600]),
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.brown,
+        ).copyWith(secondary: Colors.brown[600]),
         useMaterial3: true,
       ),
       home: MyHomePage(),

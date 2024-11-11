@@ -3,7 +3,91 @@ Nama: Madeline Clairine Gultom\
 NPM: 2306207846\
 PBP D
 
-<details><summary>TUGAS 7: Elemen Dasar Flutter</summary>
+<details>
+<summary>TUGAS 8: Elemen Dasar Flutter</summary>
+
+## TUGAS 8 PBP 2024/2025
+
+### 1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+`const` pada Flutter berfungsi untuk mendeklarasikan objek atau nilai konstan yang bersifat _compile-time constant_, yaitu nilainya sudah ditentukan pada saat kompilasi dan tidak dapat berubah selama runtime. Kegunaan `const` antara lain adalah optimalisasi kerja karena hanya perlu membuatnya satu kali dan objek ini tidak berubah sehingga dapat mengurangi beban pada memori dan CPU. `const` juga digunakan untuk nilai atau objek yang tidak akan berubah (_immutable_), lalu dapat menghemat penggunaan memori juga karena objek yang sama dapat dipanggil berkali-kali. Keuntungan dalam menggunakan `const` adalah mengurangi rekonstruksi UI sehingga aplikasi lebih responsif dan efisien, meningkatkan performa aplikasi karena tidak memerlukan alokasi memori tambahan, dan dapat membuat kode lebih jelas. Penggunaan `const` sangat disarankan pada widget yang tidak berubah, saat mendeklarasikan konstanta (seperti warna, padding, dan lain-lain), dan pada _StatelessWidget_ karena widget bersifat statis. Namun, penggunaan `const` kurang cocok pada objek yang berubah atau bersifat dinamis misalnya pada _StatefulWidget_, juga pada parameter dari fungsi atau variabel yang tidak tetap.
+
+### 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+Pada Flutter, Column dan Row adalah dua widget layout dasar yang digunakan untuk mengatur tata letak anak-anak widget (children) dalam arah vertikal dan horizontal.
+
+Column digunakan untuk menempatkan widget secara vertikal (dari atas ke bawah). Berikut contoh implementasinya.
+```dart
+...
+title: const Text('Product berhasil tersimpan'),
+content: SingleChildScrollView(
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('Nama: $_name'),
+      Text('Deskripsi: $_description'),
+      Text('Harga: $_price'),
+      Text('Stok: $_amount'),
+      Text('Rating: $_rating'),
+    ],
+  ),
+),
+...
+```
+Nama, Deskripsi, Harga, Stok, dan Rating akan tampil berurutan secara vertikal dari atas ke bawah.
+
+Row digunakan untuk menempatkan widget secara horizontal (dari kiri ke kanan). Berikut contoh implementasinya.
+```dart
+return Scaffold(
+  appBar: AppBar(
+    ...
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          InfoCard(title: 'NPM', content: npm),
+          InfoCard(title: 'Name', content: name),
+          InfoCard(title: 'Class', content: className),
+        ],
+      ),
+    ],
+    ...
+  ),
+),
+```
+NPM, Name, dan Class akan tampil berurutan secara horizontal dari kiri ke kanan.
+
+### 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+Saya menggunakan elemen input `TextFormField` untuk menerima input dari pengguna seperti nama, deskripsi, stok, harga, dan rating produk. Selain itu, terdapat `ElevatedButton` juga yang digunakan untuk (saat ini) menampilkan data form ketika memencet tombol **Save**. Masih terdapat banyak elemen input yang saya belum gunakan, seperti `Checkbox`, `RadioButton`, `Switch`, dan lain-lain.
+
+### 4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Saya mengatur konsistensi tema dalam aplikasi dengan menggunakan `ThemeData` pada `MaterialApp`. Pengaturan tema ini untuk menentukan warna primer dan sekunder dari aplikasi yang saya buat. Implementasinya sebagai berikut pada `main.dart`.
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'larizzmanizz',
+      theme: ThemeData( // Menggunakan ThemeData
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.brown,
+        ).copyWith(secondary: Colors.brown[600]),
+        useMaterial3: true,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+```
+
+### 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Saya menangani navigasi dalam aplikasi ini dengan menggunakan widget yang disediakan oleh Flutter, yaitu `Navigator`. Ketika user ingin menambahkan produk, maka fungsi `Navigator.push()` akan berjalan, yaitu menambah route ke stack route. Lalu, ketika user ingin kembali ke halaman utama, maka fungsi yang berjalan adalah `Navigator.pushReplacement()`, yang akan menggantikan route yang sudah ada pada stack route. Terdapat juga fungsi `Navigator.pop()` yang digunakan untuk menghapus route yang sedang ditampilkan dan kembali pada route yang berada di bawahnya.
+
+</details>
+
+
+<details>
+<summary>TUGAS 7: Elemen Dasar Flutter</summary>
 
 ## TUGAS 7 PBP 2024/2025
 
@@ -92,3 +176,4 @@ class ItemCard extends StatelessWidget {
   }
 }
 ```
+</details>
