@@ -4,7 +4,7 @@ NPM: 2306207846\
 PBP D
 
 <details>
-<summary>TUGAS 9: Elemen Dasar Flutter</summary>
+<summary>TUGAS 9:  Integrasi Layanan Web Django dengan Aplikasi Flutter</summary>
 
 ## TUGAS 9 PBP 2024/2025
 
@@ -67,7 +67,7 @@ Flutter memproses JSON ini dan menampilkannya dalam widget UI seperti ListView a
 </details>
 
 <details>
-<summary>TUGAS 8: Elemen Dasar Flutter</summary>
+<summary>TUGAS 8: Flutter Navigation, Layouts, Forms, and Input Elements</summary>
 
 ## TUGAS 8 PBP 2024/2025
 
