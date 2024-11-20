@@ -4,6 +4,69 @@ NPM: 2306207846\
 PBP D
 
 <details>
+<summary>TUGAS 9: Elemen Dasar Flutter</summary>
+
+## TUGAS 9 PBP 2024/2025
+
+### 1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+Membuat model untuk pengambilan atau pengiriman data JSON sangat penting, terutama dalam aplikasi berbasis Django atau framework lainnya, karena model menyediakan struktur dan validasi yang kuat untuk data. Model mendefinisikan bagaimana data disusun, termasuk tipe data, hubungan antar data, dan validasi. Model secara otomatis memvalidasi data sebelum menyimpannya di basis data. Model di Django biasanya terkait langsung dengan basis data, sehingga memudahkan untuk menyimpan, mengambil, atau memodifikasi data tanpa perlu menulis kueri SQL manual. Pemrosesannya juga mudah dan dapat meminimalisir terjadinya error. Jika tidak membuat model bisa jadi tidak langsung terjadi error, tetapi akan lebih rentan terjadi kesalahan, seperti kesalahan validasi, keyerror, dan kesulitan menyimpan data di basis data.
+
+### 2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+
+**1. Melakukan Permintaan HTTP**, yaitu mengirimkan permintaan ke server menggunakan metode seperti POST, GET, PUT, atau DELETE.\
+**2. Mengelola Data JSON**, mengonversi data dari aplikasi (dalam format JSON) menjadi request yang dapat dipahami server, dan sebaliknya, menerima respons JSON dari server untuk digunakan di aplikasi.\
+**3. Komunikasi dengan Backend**, library ini menjadi penghubung antara aplikasi Flutter dan backend Django, memungkinkan pengiriman data seperti input form ke server dan menerima respons berupa data atau status.
+
+### 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+CookieRequest adalah utilitas yang digunakan untuk mengelola permintaan HTTP dengan dukungan cookie. Cookie biasanya digunakan untuk menyimpan informasi sesi pengguna, seperti autentikasi, sehingga memungkinkan aplikasi menjaga status login atau otorisasi antar permintaan. Fungsi antara lain seperti mengirim dan menerima HTTP Request, mengelola cookie, mendukung autentikasi, dan penyimpanan sesi.
+
+Instance CookieRequest perlu dibagikan ke semua komponen aplikasi Flutter karena semua bagian aplikasi yang membutuhkan akses ke server (misalnya halaman dengan data yang memerlukan otorisasi) harus menggunakan cookie yang sama untuk menjaga sesi yang konsisten. Dengan membagikan instance ini, semua komponen menggunakan satu sumber yang sama untuk autentikasi, menghindari duplikasi atau konflik cookie. Tidak perlu membuat ulang instance atau melakukan konfigurasi cookie di setiap komponen yang membutuhkan komunikasi dengan backend. Dengan berbagi instance melalui pendekatan seperti Provider, pengelolaan status autentikasi dapat dilakukan di satu tempat dan diakses oleh seluruh aplikasi.
+
+### 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+1. Pengguna Melakukan Input
+Pengguna mengisi data pada form input di aplikasi Flutter (seperti nama produk, deskripsi, harga, dan rating).
+2. Data Dikirim ke Backend
+Saat pengguna menekan tombol Save, Flutter akan
+memastikan data valid melalui validator form, membentuk payload dalam format JSON untuk dikirim ke backend menggunakan metode HTTP POST.
+3. Backend Menerima dan Memproses Data
+Django menerima data yang dikirim oleh Flutter melalui endpoint API tertentu (misalnya /create-flutter/).
+4. Respon dari Backend ke Flutter
+Setelah data berhasil diproses, Django mengembalikan response dalam format JSON yang berisi status operasi, misalnya:
+{"status": "success", "message": "Produk baru berhasil disimpan!"}
+Jika terjadi error, Django mengembalikan pesan error yang sesuai.
+5. Flutter Menampilkan Feedback
+Flutter menerima response JSON dari backend dan memprosesnya.
+Berdasarkan status respons:
+Jika berhasil:
+Menampilkan SnackBar atau pesan konfirmasi bahwa data berhasil disimpan.
+Mengarahkan pengguna ke halaman lain (misalnya, daftar produk) dengan data terbaru.
+Jika gagal:
+Menampilkan SnackBar atau dialog error dengan pesan yang sesuai.
+6. Data Ditampilkan di Flutter
+Untuk menampilkan data terbaru:
+Flutter mengirim GET request ke backend untuk mengambil daftar produk dari database.
+Backend mengirimkan response berisi data produk dalam format JSON.
+Flutter memproses JSON ini dan menampilkannya dalam widget UI seperti ListView atau GridView.
+
+### 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+**1. Register**: Pengguna membuat akun baru → Data dikirim ke Django → Django memproses dan menyimpan data.\
+**2. Login**: Pengguna login → Django membuat sesi → Cookie sesi disimpan di Flutter → Pengguna diarahkan ke menu utama.\
+**3. Akses Menu**: Flutter mengirim request dengan cookie sesi → Django memverifikasi cookie → Data/menu ditampilkan.\
+**4. Logout**: Flutter mengirim request logout → Django menghapus sesi → Flutter menghapus cookie → Pengguna diarahkan ke halaman login.
+
+### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+1. Membuat app baru serta autentikasi pada django
+2. Menggunakan package tambahan untuk flutter dan diaplikasikan di main.dart
+3. Membuat halaman login dan register, dan logout
+4. Membuat model custom
+5. Menambah dependensi HTTP
+6. Membuat halaman list produk
+7. Menambah tombol navigasi pada drawer untuk melihat daftar produk
+8. Membuat create product flutter
+
+</details>
+
+<details>
 <summary>TUGAS 8: Elemen Dasar Flutter</summary>
 
 ## TUGAS 8 PBP 2024/2025

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:larizzmanizz/screens/menu.dart';
 import 'package:larizzmanizz/screens/product_entry_form.dart';
+import 'package:larizzmanizz/screens/list_productentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -51,7 +52,7 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.cookie_outlined),
+            leading: const Icon(Icons.add),
             title: const Text('Tambah Produk'),
             // Bagian redirection ke ProductEntryFormPage
             onTap: () {
@@ -59,6 +60,17 @@ class LeftDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const ProductEntryFormPage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_cart),
+            title: const Text('Daftar Product'),
+            onTap: () {
+              // Route menu ke halaman Product
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+              );
             },
           ),
         ],
